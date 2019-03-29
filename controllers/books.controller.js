@@ -5,7 +5,7 @@ const Book = require('../models/book.model');
 module.exports.list = (req, res, next) => {
   const criteria = {};
   if (req.query.title) {
-    criteria.title = req.query.title;
+    criteria.title = new RegExp(req.query.title, 'i');
   }
   Book.find(criteria)
     .then(books => res.render('books/list', { 
