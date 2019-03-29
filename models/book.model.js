@@ -31,10 +31,9 @@ const bookSchema = new mongoose.Schema({
     match: [URL_REGEX, 'Invalid URL pattern']
   },
   description: {
-    sort: {
+    short: {
       type: String,
-      default: '',
-      unique: true
+      default: ''
     },
     long: {
       type: String,
