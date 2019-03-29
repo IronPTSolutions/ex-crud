@@ -1,16 +1,5 @@
 <div class="list-group">
   {{#each books as |book|}}
-    <a href="/books/{{ book.id }}" class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{ book.title }}</h5>
-        <small>{{ book.authors.[0] }}</small>
-      </div>
-      <p class="mb-1">{{ book.description.short }}</p>
-      <small>
-        {{#each book.categories as |category|}}
-          {{category}}
-        {{/each}}
-      </small>
-    </a>
+    {{>book book=book}}
   {{/each}}
 </div>
