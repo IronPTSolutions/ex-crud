@@ -3,8 +3,15 @@ const mongoose = require('mongoose');
 const Book = require('../models/book.model');
 
 module.exports.list = (req, res, next) => {
-  Book.find()
-    .then(books => res.render('books/list', { books }))
+  const criteria = {};
+  if (req.query.title) {
+    criteria.title = req.query.title;
+  }
+  Book.find(criteria)
+    .then(books => res.render('books/list', { 
+      books, 
+      title: req.query.title 
+    }))
     .catch(error => next(error));
 }
 

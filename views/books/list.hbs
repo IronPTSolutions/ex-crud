@@ -1,3 +1,20 @@
+
+<form action="/books" method="GET">
+  <div class="form-row">
+    <div class="form-group col-10">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control" name="title" placeholder="Type book title..." value="{{ title }}">
+      </div>
+    </div>
+    <div class="form-actions col-2">
+      <button type="submit" class="btn btn-block btn-primary">Search</button>
+    </div>
+  </div>
+</form>
+
 <div class="list-group">
   {{#each books as |book|}}
     {{>book book=book}}
