@@ -14,6 +14,16 @@
           {{/each}}
           </small>
         </p>
+
+        <div class="d-flex">
+        <a href="/books/{{book._id}}/edit" class="btn btn-sm btn-success text-white mr-3">Edit Book</a>
+
+        <form action="/books/{{book._id}}/delete" method="POST">
+          <button type="submit" class="btn btn-danger btn-sm text-white">
+            Delete Book
+          </button>
+        </form>
+        </div>
       </div>
     </div>
   </div>
