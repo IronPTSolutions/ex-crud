@@ -14,6 +14,25 @@
           {{/each}}
           </small>
         </p>
+
+        <div class="d-flex">
+          <a href="/books/{{book._id}}/edit" class="btn btn-sm btn-success text-white mr-3">Edit Book</a>
+
+          <form action="/books/{{book._id}}/delete" method="POST">
+            <button type="submit" class="btn btn-danger btn-sm text-white mr-3">
+              Delete Book
+            </button>
+          </form>
+
+          <a href="/comments/new/{{book._id}}" class="btn btn-sm btn-primary text-white mr-3">Add comment</a>
+        </div>
+
+        <hr/>
+
+        {{#each comments as |comment|}}
+          {{>comment comment=comment}}
+        {{/each}}
+        </ul>
       </div>
     </div>
   </div>

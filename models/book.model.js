@@ -1,28 +1,15 @@
 const mongoose = require('mongoose');
 const URL_REGEX = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/;
-const BOOK_CATEGORIES = [
-  'Open Source',
-  'Mobile',
-  'Java',
-  'Software Engineering',
-  'Internet',
-  'Web Development',
-  'Miscellaneous',
-  'Microsoft .NET',
-  'Microsoft',
-  'Next Generation Databases',
-  'PowerBuilder',
-  'Client-Server',
-  'Computer Graphics',
-  'Object-Oriented Programming',
-  'S',
-  'Networking',
-  'Theory']
+
+const constants = require('../constants')
+const BOOK_CATEGORIES = constants.BOOK_CATEGORIES
+
+const Comment = require('./comment.model');
 
 const bookSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: [true, 'title is required'],
     trim: true,
     unique: true
   },
@@ -48,8 +35,13 @@ const bookSchema = new mongoose.Schema({
     type: [String],
     enum: BOOK_CATEGORIES,
     default: []
+  },
+  mainCategory: {
+    type: String,
+    enum: BOOK_CATEGORIES
   }
 })
 
 const Book = mongoose.model('Book', bookSchema);
+
 module.exports = Book;
