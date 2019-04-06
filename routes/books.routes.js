@@ -10,6 +10,8 @@ router.post('/:id', booksController.doEdit);
 
 router.post('/:id/delete', booksController.delete);
 
+router.post('/:id/like', booksController.like);
+
 router.get('/', booksController.list);
 router.get('/:id', booksController.details);
 

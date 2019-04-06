@@ -5,3 +5,9 @@ body {
 a {
   color: #00B7FF;
 }
+
+#map {
+  width: 100%;
+  height: 500px;
+  background:lightgray;
+}

@@ -9,6 +9,7 @@ require('./config/hbs.config');
 
 const booksRouter = require('./routes/books.routes');
 const commentsRouter = require('./routes/comments.routes');
+const usersRouter = require('./routes/users.routes');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => res.redirect('/books'));
 app.use('/books', booksRouter);
 app.use('/comments', commentsRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

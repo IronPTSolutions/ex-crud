@@ -39,6 +39,10 @@ const bookSchema = new mongoose.Schema({
   mainCategory: {
     type: String,
     enum: BOOK_CATEGORIES
+  },
+  likes: {
+    type: Number,
+    default: 0
   }
 })
 
