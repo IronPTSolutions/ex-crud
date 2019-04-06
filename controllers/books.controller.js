@@ -126,3 +126,16 @@ module.exports.details = (req, res, next) => {
       .catch(error => next(error));
   }
 }
+
+module.exports.like = (req, res, next) => {
+  const id = req.params.id;
+
+  setTimeout(() => {
+    Book.findByIdAndUpdate(id, { $inc: { likes: 1 } }, { new: true })
+      .then((book) => res.json({
+        bookId: book._id,
+        likes: book.likes
+      }))
+      .catch(next)
+  }, 3000)
+}

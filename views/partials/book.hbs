@@ -9,4 +9,11 @@
     {{category}}
     {{/each}}
   </small>
+
+  <div>
+    <button class="btn btn-sm btn-secondary" onclick="onClickLikeBook(event)"
+      data-book-id="{{book._id}}">
+      {{ book.likes }} Likes
+    </button>
+  </div>
 </a>
